@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Побег из Матрицы</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="particles"></div>
+
+    <div class="game-container">
+        
+        <div id="main-menu" class="screen active">
+            <h1 class="glitch" data-text="ПОБЕГ ИЗ МАТРИЦЫ">ПОБЕГ ИЗ МАТРИЦЫ</h1>
+            <p class="subtitle">Вы попали в виртуальный мир. Решите 3 задачи, чтобы выбраться...</p>
+            
+            <div class="menu-info">
+                <div class="info-card">
+                    <h3>Уровень 1</h3>
+                    <p>Координатный шторм</p>
+                </div>
+                <div class="info-card">
+                    <h3>Уровень 2</h3>
+                    <p>Зашифрованная матрица</p>
+                </div>
+                <div class="info-card">
+                    <h3>Уровень 3</h3>
+                    <p>Хаос строк</p>
+                </div>
+            </div>
+
+            <div class="record-box" id="record-box" style="display:none;">
+                Рекорд: <b id="best-score">0</b> очков
+            </div>
+
+            <button class="btn btn-start" onclick="Game.start()">НАЧАТЬ ИГРУ</button>
+        </div>
+
+        <div id="hud" class="hud" style="display:none;">
+            <div class="hud-item">
+                <span class="hud-label">УРОВЕНЬ</span>
+                <span class="hud-value" id="hud-level">1/3</span>
+            </div>
+            <div class="hud-item hud-hp">
+                <span class="hud-label">HP</span>
+                <div class="hp-bar">
+                    <div class="hp-fill" id="hp-fill" style="width:100%"></div>
+                </div>
+                <span class="hud-value" id="hud-hp">100</span>
+            </div>
+            <div class="hud-item">
+                <span class="hud-label">ОЧКИ</span>
+                <span class="hud-value" id="hud-score">0</span>
+            </div>
+            <div class="hud-item">
+                <span class="hud-label">РАУНД</span>
+                <span class="hud-value" id="hud-round">1/3</span>
+            </div>
+        </div>
+
+        <div id="level-1" class="screen">
+            <div class="level-header">
+                <h2>УРОВЕНЬ 1: Координатный шторм</h2>
+                <p class="task">Кликните на точку, которая находится <b>ближе к началу координат</b></p>
+            </div>
+
+            <div class="canvas-wrapper">
+                <canvas id="coord-canvas" width="500" height="500"></canvas>
+            </div>
+
+            <div class="level-info">
+                <div class="info-block">
+                    <div class="point-info point-a">
+                        <b>Точка A:</b> (<span id="info-x1">0</span>, <span id="info-y1">0</span>)
+                    </div>
+                </div>
+                <div class="info-block">
+                    <div class="point-info point-b">
+                        <b>Точка B:</b> (<span id="info-x2">0</span>, <span id="info-y2">0</span>)
+                    </div>
+                </div>
+            </div>
+
+            <div id="feedback-1" class="feedback"></div>
+        </div>
+
+        <div id="level-2" class="screen">
+            <div class="level-header">
+                <h2>УРОВЕНЬ 2: Зашифрованная матрица</h2>
+                <p class="task">Найдите сумму <b>только подсвеченных</b> элементов матрицы</p>
+            </div>
+
+            <div class="matrix-wrapper">
+                <table id="matrix-table" class="matrix interactive"></table>
+            </div>
+
+            <div class="answer-box">
+                <input type="number" id="sum-input" class="big-input" placeholder="Ваш ответ">
+                <button class="btn btn-primary" onclick="Game.level2.check()">Проверить</button>
+                <button class="btn btn-secondary" onclick="Game.level2.skip()">Пропустить (-20 HP)</button>
+            </div>
+
+            <div id="feedback-2" class="feedback"></div>
+        </div>
+
+        <div id="level-3" class="screen">
+            <div class="level-header">
+                <h2>УРОВЕНЬ 3: Хаос строк</h2>
+                <p class="task">Перетащите строки мышкой, чтобы <b>поменять местами первую и последнюю</b></p>
+            </div>
+
+            <div class="matrix-wrapper">
+                <div class="matrix-label">Оригинал:</div>
+                <table id="matrix-original" class="matrix"></table>
+
+                <div class="matrix-label">Ваш результат (перетаскивайте строки):</div>
+                <table id="matrix-player" class="matrix draggable"></table>
+            </div>
+
+            <div class="answer-box">
+                <button class="btn btn-primary" onclick="Game.level3.check()">Проверить</button>
+                <button class="btn btn-secondary" onclick="Game.level3.reset()">Сбросить</button>
+                <button class="btn btn-secondary" onclick="Game.level3.skip()">Пропустить (-20 HP)</button>
+            </div>
+
+            <div id="feedback-3" class="feedback"></div>
+        </div>
+
+        <div id="victory" class="screen">
+            <h1 class="victory-title">ПОБЕДА!</h1>
+            <p class="victory-subtitle">Вы выбрались из Матрицы!</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="final-score">0</div>
+                    <div class="stat-label">Очки</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="final-time">0s</div>
+                    <div class="stat-label">Время</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="final-hp">100</div>
+                    <div class="stat-label">HP осталось</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="final-accuracy">0%</div>
+                    <div class="stat-label">Точность</div>
+                </div>
+            </div>
+
+            <div id="new-record" class="new-record" style="display:none;">
+                НОВЫЙ РЕКОРД!
+            </div>
+
+            <button class="btn btn-start" onclick="Game.restart()">ИГРАТЬ СНОВА</button>
+        </div>
+
+        <div id="gameover" class="screen">
+            <h1 class="gameover-title">GAME OVER</h1>
+            <p class="gameover-subtitle">Матрица поглотила вас...</p>
+            <p>Набрано очков: <b id="go-score">0</b></p>
+            <button class="btn btn-start" onclick="Game.restart()">ПОПРОБОВАТЬ СНОВА</button>
+        </div>
+    </div>
+
+    <script src="js/game.js"></script>
+</body>
+</html>
