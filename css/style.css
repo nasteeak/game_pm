@@ -8,7 +8,7 @@
     --grey-black: #1f1b21;
     --grey-black-light: #2a242d;
     --deep-purple: #6b0b77;
-    --deep-purple-bright: #9b2db5;  /* Сделал ярче! */
+    --deep-purple-bright: #9b2db5; 
     --lavender: #d8b4ea;
     --lavender-dim: #e8bbff;
     --card-bg: #4f0c53;
@@ -55,7 +55,6 @@ body {
     z-index: 1;
 }
 
-/* Экраны */
 .screen {
     display: none;
     animation: fadeIn 0.5s ease-out;
@@ -70,15 +69,14 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* ========== ГЛАВНОЕ МЕНЮ ========== */
 #main-menu {
     text-align: center;
-    padding: 60px 20px;
+    padding: 40px 20px;
 }
 
 .glitch {
     font-size: 3.5em;
-    color: var(--lavender-dim);  /* Светлый текст! */
+    color: var(--lavender-dim);  
     text-shadow: 
         0 0 4px var(--deep-purple-bright),
         0 0 8px var(--deep-purple-bright);
@@ -101,7 +99,7 @@ body {
 .subtitle {
     font-size: 1.2em;
     color: var(--lavender);
-    margin-bottom: 70px;
+    margin-bottom: 60px;
 }
 
 .menu-info {
@@ -113,16 +111,16 @@ body {
 
 .info-card {
     background: var(--card-bg);
-    border: 2px solid var(--deep-purple-bright);  /* Яркий бордер */
+    border: 2px solid var(--deep-purple-bright);  
     border-radius: 10px;
-    padding: 30px 20px;
+    padding: 20px 20px;
     transition: all 0.3s;
 }
 
 .info-card:hover {
     border-color: var(--lavender-dim);
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(155, 45, 181, 0.4);  /* Исправлен цвет */
+    box-shadow: 0 10px 30px rgba(155, 45, 181, 0.4);  
 }
 
 .info-card .icon {
@@ -131,12 +129,12 @@ body {
 }
 
 .info-card h3 {
-    color: var(--lavender-dim);  /* Светлый текст */
+    color: var(--lavender-dim); 
     margin-bottom: 10px;
 }
 
 .info-card p {
-    color: #ddd;  /* Чуть светлее для читаемости */
+    color: #ddd; 
     font-size: 0.9em;
 }
 
@@ -145,20 +143,19 @@ body {
     border: 2px solid var(--deep-purple-bright);
     padding: 20px;
     border-radius: 10px;
-    margin-bottom: 50px;
+    margin-bottom: 35px;
     font-size: 1.3em;
-    color: var(--lavender-dim);  /* Светлый текст */
+    color: var(--lavender-dim);  
 }
 
-/* Кнопки */
 .btn {
     padding: 15px 35px;
     font-size: 1.2em;
     font-family: inherit;
     font-weight: bold;
-    border: 2px solid var(--deep-purple-bright);  /* Яркий бордер */
+    border: 2px solid var(--deep-purple-bright);  
     background: transparent;
-    color: var(--lavender-dim);  /* Светлый текст */
+    color: var(--lavender-dim); 
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s;
@@ -170,19 +167,19 @@ body {
 .btn:hover {
     background: var(--deep-purple-bright);
     color: #fff;
-    box-shadow: 0 0 15px rgba(155, 45, 181, 0.5);  /* Исправлен цвет */
+    box-shadow: 0 0 15px rgba(155, 45, 181, 0.5);  
     transform: translateY(-2px);
 }
 
 .btn-primary {
-    border-color: var(--lavender);  /* Светлый бордер */
+    border-color: var(--lavender);  
     color: var(--lavender-dim);
 }
 
 .btn-primary:hover {
     background: var(--lavender);
-    color: var(--grey-black);  /* Тёмный текст на светлом фоне */
-    box-shadow: 0 0 15px rgba(216, 180, 234, 0.5);  /* Исправлен цвет */
+    color: var(--grey-black); 
+    box-shadow: 0 0 15px rgba(216, 180, 234, 0.5); 
 }
 
 .btn-secondary {
@@ -204,16 +201,15 @@ body {
     margin-top: 20px;
 }
 
-/* ========== HUD ========== */
 .hud {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
     background: var(--card-bg);
-    padding: 15px;
+    padding: 8px;
     border-radius: 10px;
     border: 2px solid var(--deep-purple-bright);
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     backdrop-filter: blur(10px);
 }
 
@@ -230,8 +226,8 @@ body {
 }
 
 .hud-value {
-    font-size: 1.5em;
-    color: var(--lavender-dim);  /* Светлый текст */
+    font-size: 1.2em;
+    color: var(--lavender-dim);  
     font-weight: bold;
     text-shadow: 0 0 4px var(--deep-purple-bright);
 }
@@ -248,39 +244,37 @@ body {
 
 .hp-fill {
     height: 100%;
-    background: linear-gradient(90deg, var(--deep-purple-bright), var(--lavender));  /* Яркий градиент */
+    background: linear-gradient(90deg, var(--deep-purple-bright), var(--lavender)); 
     transition: width 0.5s;
     box-shadow: 0 0 6px rgba(155, 45, 181, 0.6);
 }
 
 .hud-hp .hud-value {
-    color: var(--lavender-dim);  /* Светлый текст! */
+    color: var(--lavender-dim); 
     text-shadow: 0 0 4px var(--deep-purple-bright);
 }
 
-/* ========== УРОВНИ ========== */
 .level-header {
     text-align: center;
     margin-bottom: 35px;
 }
 
 .level-header h2 {
-    color: var(--lavender-dim);  /* Светлый текст */
-    font-size: 2em;
+    color: var(--lavender-dim);  
+    font-size: 1.7em;
     margin-bottom: 15px;
     text-shadow: 0 0 6px var(--deep-purple-bright);
 }
 
 .task {
-    font-size: 1.1em;
-    color: #ddd;  /* Светлее для читаемости */
+    font-size: 1em;
+    color: #ddd; 
 }
 
 .task b {
-    color: var(--lavender-dim);  /* Светлый текст! */
+    color: var(--lavender-dim); 
 }
 
-/* Canvas */
 .canvas-wrapper {
     display: flex;
     justify-content: center;
@@ -292,7 +286,7 @@ body {
     border: 2px solid var(--deep-purple-bright);
     border-radius: 10px;
     cursor: crosshair;
-    box-shadow: 0 0 15px rgba(155, 45, 181, 0.3);  /* Исправлен цвет */
+    box-shadow: 0 0 15px rgba(155, 45, 181, 0.3);  
     max-width: 100%;
 }
 
@@ -312,8 +306,8 @@ body {
 }
 
 .point-info.point-a {
-    border-color: var(--lavender);  /* Светлый бордер */
-    color: var(--lavender-dim);  /* Светлый текст! */
+    border-color: var(--lavender); 
+    color: var(--lavender-dim);  
 }
 
 .point-info.point-b {
@@ -321,7 +315,6 @@ body {
     color: var(--lavender-dim);
 }
 
-/* Матрица */
 .matrix-wrapper {
     display: flex;
     flex-direction: column;
@@ -330,7 +323,7 @@ body {
 }
 
 .matrix-label {
-    color: var(--lavender-dim);  /* Светлый текст */
+    color: var(--lavender-dim); 
     margin: 20px 0 15px;
     font-size: 1.1em;
     letter-spacing: 2px;
@@ -352,7 +345,7 @@ body {
     font-size: 1.5em;
     font-weight: bold;
     background: var(--grey-black-light);
-    border: 2px solid var(--deep-purple-bright);  /* Яркий бордер */
+    border: 2px solid var(--deep-purple-bright);  
     border-radius: 8px;
     color: #fff;
     transition: all 0.3s;
@@ -360,9 +353,9 @@ body {
 }
 
 .matrix.interactive td.highlighted {
-    background: rgba(155, 45, 181, 0.3);  /* Исправлен цвет */
-    border-color: var(--lavender);  /* Светлый бордер */
-    color: var(--lavender-dim);  /* Светлый текст */
+    background: rgba(155, 45, 181, 0.3);  
+    border-color: var(--lavender); 
+    color: var(--lavender-dim);  
     box-shadow: 0 0 10px rgba(155, 45, 181, 0.5);
     cursor: pointer;
 }
@@ -386,7 +379,7 @@ body {
 }
 
 .matrix.draggable tr.drag-over {
-    background: rgba(232, 187, 255, 0.15);  /* Исправлен цвет */
+    background: rgba(232, 187, 255, 0.15); 
 }
 
 .matrix.draggable tr.swapped {
@@ -398,7 +391,6 @@ body {
     50% { transform: scale(1.05); box-shadow: 0 0 15px var(--deep-purple-bright); }
 }
 
-/* Ответ */
 .answer-box {
     text-align: center;
     margin: 35px 0;
@@ -410,7 +402,7 @@ body {
     font-family: inherit;
     background: var(--grey-black-light);
     border: 2px solid var(--deep-purple-bright);
-    color: var(--lavender-dim);  /* Светлый текст */
+    color: var(--lavender-dim);  
     border-radius: 8px;
     width: 200px;
     text-align: center;
@@ -420,10 +412,9 @@ body {
 .big-input:focus {
     outline: none;
     border-color: var(--lavender);
-    box-shadow: 0 0 10px rgba(155, 45, 181, 0.5);  /* Исправлен цвет */
+    box-shadow: 0 0 10px rgba(155, 45, 181, 0.5);  
 }
 
-/* Feedback */
 .feedback {
     text-align: center;
     padding: 20px;
@@ -436,16 +427,16 @@ body {
 }
 
 .feedback.correct {
-    background: rgba(155, 45, 181, 0.25);  /* Исправлен цвет */
-    color: var(--lavender-dim);  /* Светлый текст */
+    background: rgba(155, 45, 181, 0.25);  
+    color: var(--lavender-dim);  
     border: 2px solid var(--lavender);
     box-shadow: 0 0 15px rgba(155, 45, 181, 0.4);
     animation: pulseGreen 0.5s;
 }
 
 .feedback.incorrect {
-    background: rgba(216, 180, 234, 0.2);  /* Исправлен цвет */
-    color: var(--lavender-dim);  /* Светлый текст! */
+    background: rgba(216, 180, 234, 0.2);  
+    color: var(--lavender-dim);  
     border: 2px solid var(--lavender);
     box-shadow: 0 0 15px rgba(216, 180, 234, 0.4);
     animation: shake 0.5s;
@@ -462,7 +453,6 @@ body {
     75% { transform: translateX(10px); }
 }
 
-/* Победа/Поражение */
 .victory-title, .gameover-title {
     text-align: center;
     font-size: 4em;
@@ -470,7 +460,7 @@ body {
 }
 
 .victory-title {
-    color: var(--lavender-dim);  /* Светлый текст */
+    color: var(--lavender-dim);  
     text-shadow: 0 0 10px var(--deep-purple-bright);
     animation: victoryGlow 2s infinite;
 }
@@ -481,7 +471,7 @@ body {
 }
 
 .gameover-title {
-    color: var(--lavender);  /* Светлый текст! */
+    color: var(--lavender);  
     text-shadow: 0 0 10px var(--deep-purple-bright);
 }
 
@@ -509,7 +499,7 @@ body {
 
 .stat-value {
     font-size: 2.5em;
-    color: var(--lavender-dim);  /* Светлый текст */
+    color: var(--lavender-dim);  
     text-shadow: 0 0 6px var(--deep-purple-bright);
     font-weight: bold;
 }
@@ -541,7 +531,69 @@ body {
     color: var(--lavender);
 }
 
+#maze-canvas {
+    background: #1f1b21;
+    border: 2px solid var(--deep-purple-bright);
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(155, 45, 181, 0.3);
+    max-width: 100%;
+    height: auto;
+}
+
+.mobile-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    margin: 15px 0;
+}
+
+.controls-row {
+    display: flex;
+    gap: 6px;
+}
+
+.control-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.4em;
+    background: var(--card-bg);
+    border: 2px solid var(--deep-purple-bright);
+    color: var(--lavender-dim);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.control-btn:hover {
+    background: var(--deep-purple-bright);
+    color: #fff;
+    transform: scale(1.05);
+    box-shadow: 0 0 12px rgba(155, 45, 181, 0.5);
+}
+
+.control-btn:active {
+    transform: scale(0.95);
+}
+
+#feedback-maze {
+    min-height: 40px;
+    margin-top: 10px;
+}
+
 @media (max-width: 700px) {
+    .control-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2em;
+    }
+    #maze-canvas {
+        max-width: 95vw;
+    }
     .menu-info, .stats-grid {
         grid-template-columns: 1fr;
     }
